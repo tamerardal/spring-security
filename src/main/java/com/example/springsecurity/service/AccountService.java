@@ -1,6 +1,6 @@
 package com.example.springsecurity.service;
 
-import com.example.springsecurity.dto.AccountDto;
+import com.example.springsecurity.dto.response.AccountDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

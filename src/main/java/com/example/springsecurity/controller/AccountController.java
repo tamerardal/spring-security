@@ -1,6 +1,6 @@
 package com.example.springsecurity.controller;
 
-import com.example.springsecurity.dto.AccountDto;
+import com.example.springsecurity.dto.response.AccountDto;
 import com.example.springsecurity.service.AccountService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;

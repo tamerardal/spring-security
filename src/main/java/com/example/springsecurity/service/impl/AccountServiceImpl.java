@@ -3,7 +3,7 @@ package com.example.springsecurity.service.impl;
 import com.example.springsecurity.client.FakeBankClient;
 import com.example.springsecurity.client.dto.AccountClientDto;
 import com.example.springsecurity.service.AccountService;
-import com.example.springsecurity.dto.AccountDto;
+import com.example.springsecurity.dto.response.AccountDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;

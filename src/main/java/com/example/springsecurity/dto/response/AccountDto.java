@@ -1,8 +1,6 @@
-package com.example.springsecurity.dto;
+package com.example.springsecurity.dto.response;
 
 import lombok.*;
-
-import java.math.BigDecimal;
 
 @Getter
 @Setter
