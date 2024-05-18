@@ -1,0 +1,7 @@
+### GET request to example server
+GET https://examples.http-client.intellij.net/get
+    ?generated-in=IntelliJ IDEA
+
+### GET ALL ACCOUNTS
+GET http://localhost:8080/account?size=100
+Authorization: Basic dXNlcjo4ZGZmZDBhZS03MWE1LTRmYWEtYjJlNS04MjI5MTgwNjM5ZDQ=
