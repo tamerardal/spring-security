@@ -1,0 +1,12 @@
+#version: '3.8'
+#
+#services:
+#  db:
+#    image: postgres:latest
+#    container_name: postgres-0
+#    environment:
+#      POSTGRES_USER: postgres
+#      POSTGRES_PASSWORD: password
+#      POSTGRES_DB: spring-security
+#    ports:
+#      - "5432:5432"
