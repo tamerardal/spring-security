@@ -1,8 +1,8 @@
-package com.example.springsecurity.service.impl;
+package com.example.springsecurity.account.service.impl;
 
-import com.example.springsecurity.client.FakeBankClient;
-import com.example.springsecurity.client.dto.AccountClientDto;
-import com.example.springsecurity.service.AccountService;
+import com.example.springsecurity.account.client.FakeBankClient;
+import com.example.springsecurity.account.client.dto.AccountClientDto;
+import com.example.springsecurity.account.service.AccountService;
 import com.example.springsecurity.dto.response.AccountDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;

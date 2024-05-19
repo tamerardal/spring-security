@@ -1,4 +1,4 @@
-package com.example.springsecurity.service;
+package com.example.springsecurity.account.service;
 
 import com.example.springsecurity.dto.response.AccountDto;
 import org.springframework.data.domain.Page;

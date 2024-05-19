@@ -1,6 +1,6 @@
-package com.example.springsecurity.client;
+package com.example.springsecurity.account.client;
 
-import com.example.springsecurity.client.dto.AccountClientDto;
+import com.example.springsecurity.account.client.dto.AccountClientDto;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 

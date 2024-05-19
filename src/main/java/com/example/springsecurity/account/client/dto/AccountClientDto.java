@@ -1,4 +1,4 @@
-package com.example.springsecurity.client.dto;
+package com.example.springsecurity.account.client.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

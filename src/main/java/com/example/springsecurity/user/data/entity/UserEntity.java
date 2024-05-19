@@ -1,4 +1,4 @@
-package com.example.springsecurity.data.entity;
+package com.example.springsecurity.user.data.entity;
 
 import com.example.springsecurity.dto.enums.Role;
 import jakarta.persistence.*;
@@ -19,7 +19,7 @@ import java.util.List;
 @Builder
 @Entity
 @Table(name = "app_user")
-public class User implements UserDetails {
+public class UserEntity implements UserDetails {
     @Id
     @GeneratedValue
     private Integer id;
@@ -29,8 +29,6 @@ public class User implements UserDetails {
     private String username;
     @Enumerated(EnumType.STRING)
     private Role role;
-
-
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
