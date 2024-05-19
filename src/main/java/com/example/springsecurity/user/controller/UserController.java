@@ -1,7 +1,7 @@
-package com.example.springsecurity.authentication.controller;
+package com.example.springsecurity.user.controller;
 
-import com.example.springsecurity.authentication.service.AuthenticationService;
-import com.example.springsecurity.dto.request.AuthenticationRequestDto;
+import com.example.springsecurity.user.service.UserService;
+import com.example.springsecurity.dto.request.LoginRequestDto;
 import com.example.springsecurity.dto.request.UserCreateDto;
 import com.example.springsecurity.dto.response.AuthenticationResponseDto;
 import lombok.RequiredArgsConstructor;
@@ -14,16 +14,18 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/auth")
 @RequiredArgsConstructor
-public class AuthenticationController {
-    private final AuthenticationService service;
+public class UserController {
+    private final UserService service;
 
     @PostMapping("/register")
-    public ResponseEntity<AuthenticationResponseDto> register(@RequestBody UserCreateDto user) {
-        return ResponseEntity.ok(service.register(user));
+    public ResponseEntity<?> register(@RequestBody UserCreateDto user) {
+        service.register(user);
+
+        return ResponseEntity.ok().build();
     }
 
     @PostMapping("/authenticate")
-    public ResponseEntity<AuthenticationResponseDto> register(@RequestBody AuthenticationRequestDto user) {
+    public ResponseEntity<AuthenticationResponseDto> register(@RequestBody LoginRequestDto user) {
         return ResponseEntity.ok(service.authenticate(user));
     }
 }

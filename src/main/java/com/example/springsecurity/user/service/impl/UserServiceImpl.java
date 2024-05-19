@@ -1,9 +1,9 @@
-package com.example.springsecurity.authentication.service.impl;
+package com.example.springsecurity.user.service.impl;
 
-import com.example.springsecurity.authentication.service.AuthenticationService;
+import com.example.springsecurity.user.service.UserService;
 import com.example.springsecurity.config.JwtService;
 import com.example.springsecurity.dto.enums.Role;
-import com.example.springsecurity.dto.request.AuthenticationRequestDto;
+import com.example.springsecurity.dto.request.LoginRequestDto;
 import com.example.springsecurity.dto.request.UserCreateDto;
 import com.example.springsecurity.dto.response.AuthenticationResponseDto;
 import com.example.springsecurity.user.data.entity.UserEntity;
@@ -17,14 +17,14 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class AuthenticationServiceImpl implements AuthenticationService {
+public class UserServiceImpl implements UserService {
     private final PasswordEncoder passwordEncoder;
     private final UserDataService userDataService;
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
 
     @Override
-    public AuthenticationResponseDto authenticate(AuthenticationRequestDto dto) {
+    public AuthenticationResponseDto authenticate(LoginRequestDto dto) {
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(dto.getUsername(), dto.getPassword()));
 
         UserEntity entity = userDataService.findByUsername(dto.getUsername()).orElseThrow(() -> new UsernameNotFoundException(dto.getUsername()));
@@ -33,7 +33,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     }
 
     @Override
-    public AuthenticationResponseDto register(UserCreateDto dto) {
+    public void register(UserCreateDto dto) {
         UserEntity entity = UserEntity.builder()
                 .name(dto.getName())
                 .surname(dto.getSurname())
@@ -43,7 +43,5 @@ public class AuthenticationServiceImpl implements AuthenticationService {
                 .build();
 
         userDataService.save(entity);
-
-        return AuthenticationResponseDto.builder().token(jwtService.generateToken(entity)).build();
     }
 }
