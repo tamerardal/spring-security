@@ -2,15 +2,33 @@
 GET https://examples.http-client.intellij.net/get
     ?generated-in=IntelliJ IDEA
 
-### Get JWT
-POST localhost:8080/login
+### register
+POST {{url}}/auth/register
 Content-Type: application/json
 
 {
-  "username": "user",
-  "password": "6fd531e4-23f0-4026-8023-598726dc4943"
+  "name": "Tamer",
+  "surname": "Ardal",
+  "password": "123456",
+  "username": "admin"
 }
 
+> {%
+    client.global.set("token", response.body.token);
+
+%}
+
+### auth
+POST {{url}}/auth/authenticate
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "123456"
+}
+
+> {% client.global.set("auth-token", response.body.token);  %}
+
 ### GET ALL ACCOUNTS
-GET http://localhost:8080/account?size=100
-Authorization: Basic dXNlcjo4ZGZmZDBhZS03MWE1LTRmYWEtYjJlNS04MjI5MTgwNjM5ZDQ=
+GET {{url}}/account?size=100
+Authorization: Bearer {{token}}
